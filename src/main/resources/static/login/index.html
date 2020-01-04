@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>登录 </title>
+    <link href="css/style.css" rel='stylesheet' type='text/css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords"
+          content="App Sign in Form,Login Forms,Sign up Forms,Registration Forms,News latter Forms,Elements" ./>
+
+    <!--webfonts-->
+    <!--//webfonts-->
+</head>
+
+<body>
+<h1>小鱼眼后台</h1>
+<div class="app-cam">
+    <div class="cam"><img src="images/cam.png" class="img-responsive" alt=""/></div>
+    <form id="login">
+        <input type="text" class="text" value="E-mail address" onfocus="this.value = '';"
+               onblur="if (this.value == '') {this.value = 'E-mail address';}">
+        <input type="password" value="Password" onfocus="this.value = '';"
+               onblur="if (this.value == '') {this.value = 'Password';}">
+        <div class="submit"><input type="submit" value="Sign in"></div>
+        <div class="clear"></div>
+        <div class="buttons">
+            <ul>
+                <li><a href="#" class="hvr-sweep-to-right">Sign in with Facebook</a></li>
+                <li><a href="#" class="hvr-sweep-to-left">Sign in with Twitter</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="new">
+            <p><a href="#">Forgot Password ?</a></p>
+            <p class="sign">New here ?<a href="#"> Sign Up</a></p>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>
+<!--start-copyright-->
+<div class="copy-right">
+    <p>Copyright &copy; 2015.Company name All rights reserved. 毕业设计 </p>
+</div>
+<!--//end-copyright-->
+</body>
+
+</html>
+<script src="../lib/jq/jquery-1.7.2.min.js"></script>
+<script src="../lib/host.js"></script>
+<script>
+
+    $("#login").submit(function () {
+        // location.href = "../main.html";
+
+        location.href = "/main/main.html";
+        return false;
+    });
+</script>
+<script type="application/x-javascript">
+    addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+</script>

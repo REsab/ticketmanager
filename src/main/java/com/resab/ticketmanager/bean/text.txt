@@ -1,0 +1,15 @@
+    bean.setCreateOn(rs.getDate("321321313"));
+        bean.setDateView(rs.getDate("321321313"));
+        bean.setReleaseDate(rs.getDate("321321313"));
+        
+        
+        bean.setPrice(rs.getDouble("321321313"));
+        
+        bean.setCatName(rs.getString("321321313"));
+        bean.setFilmName(rs.getString("321321313"));
+        bean.setDirector(rs.getString("321321313"));
+        bean.setSummary(rs.getString("321321313"));
+        bean.setPath1(rs.getString("321321313"));
+        bean.setPath2(rs.getString("321321313"));
+        bean.setPath3(rs.getString("321321313"));
+        bean.setPath4(rs.getString("321321313"));
