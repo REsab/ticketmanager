@@ -1,2 +1,9 @@
 server:
-  port: 8081
+  port: 38080
+
+
+##  slf4j
+logging:
+  level:
+    root: info
+    com.cloud: debug

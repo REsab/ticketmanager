@@ -1,6 +1,7 @@
 package com.resab.ticketmanager.interceptor;
 
 import com.resab.ticketmanager.bean.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -11,14 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * @Description
+ * @Description 登录拦截
  * @Date 2020/1/4 21:01
  * @Author 郑跃琳
  */
 
-
+@Slf4j
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
+    //    boolean switches = false; //是否拦截
+
 
     //这个方法是在访问接口之前执行的，我们只需要在这里写验证登陆状态的业务逻辑，就可以在用户调用指定接口之前验证登陆状态了
     @Override
@@ -28,16 +31,17 @@ public class LoginInterceptor implements HandlerInterceptor {
         //这里的User是登陆时放入session的
         User user = (User) session.getAttribute("user");
         //如果session中没有user，表示没登陆
+        //
+        //        user = new User();
+        //        user.setAge(11);
 
         if (user == null) {
             //这个方法返回false表示忽略当前请求，如果一个用户调用了需要登陆才能使用的接口，如果他没有登陆这里会直接忽略掉
             //当然你可以利用response给用户返回一些提示信息，告诉他没登陆
-            System.out.println(request.getContextPath());
-            System.out.println("2   " + request.getServletPath());
-            System.out.println("false");
+            log.info("拦截到" + request.getServletPath());
             return false;
         } else {
-            System.out.println("true ");
+            log.info("拦截器放行" + request.getContextPath());
             return true;    //如果session里有user，表示该用户已经登陆，放行，用户即可继续调用自己需要的接口
         }
     }

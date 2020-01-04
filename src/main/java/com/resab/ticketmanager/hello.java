@@ -11,9 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @RestController
-@RequestMapping("/Ctrl")
 public class hello {
-    @RequestMapping("/hello001")
+    @RequestMapping("/ctrl/hello001")
     public String hello() {
         System.out.println("lsdfjslf");
 
@@ -21,8 +20,16 @@ public class hello {
                 " \n this msg from controller";
     }
 
+    @RequestMapping("/login/hello001")
+    public String hell333o() {
+        System.out.println("lsdfjslf");
 
-    @RequestMapping("/forwardMAV.do")
+        return "Hello, Spring Boot is running !" +
+                " \n this msg from controller";
+    }
+
+
+    @RequestMapping("/test/forwardMAV.do")
     public ModelAndView forwardMAV() throws Exception {
 
         ModelAndView mv = new ModelAndView();
