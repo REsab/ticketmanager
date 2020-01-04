@@ -1,6 +1,6 @@
-package com.resab.ticketmanager.interceptor;
+package com.resab.ticketmanager.zcontroller.interceptor;
 
-import com.resab.ticketmanager.bean.User;
+import com.resab.ticketmanager.bean.Admin;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,6 @@ import javax.servlet.http.HttpSession;
 @Slf4j
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
-    //    boolean switches = false; //是否拦截
 
 
     //这个方法是在访问接口之前执行的，我们只需要在这里写验证登陆状态的业务逻辑，就可以在用户调用指定接口之前验证登陆状态了
@@ -29,11 +28,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         //每一个项目对于登陆的实现逻辑都有所区别，我这里使用最简单的Session提取User来验证登陆。
         HttpSession session = request.getSession();
         //这里的User是登陆时放入session的
-        User user = (User) session.getAttribute("user");
+        Admin user = (Admin) session.getAttribute("user");
         //如果session中没有user，表示没登陆
-        //
-        //        user = new User();
-        //        user.setAge(11);
+
 
         if (user == null) {
             //这个方法返回false表示忽略当前请求，如果一个用户调用了需要登陆才能使用的接口，如果他没有登陆这里会直接忽略掉

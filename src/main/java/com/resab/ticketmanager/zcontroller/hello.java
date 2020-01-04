@@ -1,5 +1,6 @@
-package com.resab.ticketmanager;
+package com.resab.ticketmanager.zcontroller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,7 +30,7 @@ public class hello {
     }
 
 
-    @RequestMapping("/test/forwardMAV.do")
+    @RequestMapping("/test/forwardMAV.d1o")
     public ModelAndView forwardMAV() throws Exception {
 
         ModelAndView mv = new ModelAndView();
@@ -40,6 +41,15 @@ public class hello {
         //手动显式指定使用转发，此时springmvc.xml配置文件中的视图解析器将会失效
         mv.setViewName("forward:/login/index.html");
         return mv;
+
+    }
+
+    @RequestMapping("/test/forwardMAV.do2")
+    public String forwardMAV2(Model model) throws Exception {
+
+        model.addAttribute("name", "chaoying");
+        return "forward:/login/index.html";
+
 
     }
     //

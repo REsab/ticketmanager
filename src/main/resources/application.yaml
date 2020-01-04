@@ -1,9 +1,10 @@
 server:
   port: 38080
 
-
 ##  slf4j
 logging:
   level:
     root: info
     com.cloud: debug
+
+debug: true

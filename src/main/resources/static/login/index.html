@@ -9,28 +9,22 @@
     <meta name="keywords"
           content="App Sign in Form,Login Forms,Sign up Forms,Registration Forms,News latter Forms,Elements" ./>
 
-    <!--webfonts-->
-    <!--//webfonts-->
+
 </head>
 
 <body>
 <h1>小鱼眼后台</h1>
 <div class="app-cam">
     <div class="cam"><img src="images/cam.png" class="img-responsive" alt=""/></div>
+    <div><h3 id="msg">slfkafj</h3></div>
     <form id="login">
-        <input type="text" class="text" value="E-mail address" onfocus="this.value = '';"
+        <input name="name" type="text" class="text" value="admin" onfocus="this.value = '';"
                onblur="if (this.value == '') {this.value = 'E-mail address';}">
-        <input type="password" value="Password" onfocus="this.value = '';"
+        <input type="password" value="admin" onfocus="this.value = '';" name="pwd"
                onblur="if (this.value == '') {this.value = 'Password';}">
         <div class="submit"><input type="submit" value="Sign in"></div>
         <div class="clear"></div>
-        <div class="buttons">
-            <ul>
-                <li><a href="#" class="hvr-sweep-to-right">Sign in with Facebook</a></li>
-                <li><a href="#" class="hvr-sweep-to-left">Sign in with Twitter</a></li>
-                <div class="clear"></div>
-            </ul>
-        </div>
+
         <div class="new">
             <p><a href="#">Forgot Password ?</a></p>
             <p class="sign">New here ?<a href="#"> Sign Up</a></p>
@@ -40,23 +34,13 @@
 </div>
 <!--start-copyright-->
 <div class="copy-right">
-    <p>Copyright &copy; 2015.Company name All rights reserved. 毕业设计 </p>
+    <p>Copyright &copy; 2020.Personal works. 毕业设计 by 郑跃琳 </p>
 </div>
 <!--//end-copyright-->
 </body>
 
 </html>
 <script src="../lib/jq/jquery-1.7.2.min.js"></script>
-<script src="../lib/host.js"></script>
-<script>
-
-    $("#login").submit(function () {
-        // location.href = "../main.html";
-
-        location.href = "/main/main.html";
-        return false;
-    });
-</script>
 <script type="application/x-javascript">
     addEventListener("load", function () {
         setTimeout(hideURLbar, 0);
@@ -64,5 +48,37 @@
 
     function hideURLbar() {
         window.scrollTo(0, 1);
-    } </script>
+    }
+</script>
+<script>
+    $('#login').on('submit', function () {
+        login();
+        event.preventDefault() //阻止form表单默认提交
+    })
+
+    function login() {
+        $("#login").submit(function () {
+
+            $.ajax({
+                type: "post",
+                url: "/admin/login",
+                data: $('#login').serialize(),
+            }).success(function (message) {
+                // alert("123"+message)
+                if (message == true) {
+                    location.href = "/main/index.html";
+                } else {
+                    $("#msg").innerText = '账号或密码错误';
+                }
+
+                console.log(message);
+            }).fail(function (err) {
+                console.log(err)
+            })
+
+        });
+
+    }
+
+
 </script>
